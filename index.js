@@ -25,7 +25,7 @@ dbConnect()
 const allUser = client.db('atg-app').collection('users')
 const allPost = client.db('atg-app').collection('posts')
 const allComment = client.db('atg-app').collection('comments')
-
+//Sigup API
 app.put('/signup', async(req, res)=>{
     try{
         const {username, email} = req.body;
@@ -54,6 +54,7 @@ app.put('/signup', async(req, res)=>{
 
     }
 })
+// Add Post API
 app.post('/addPost', async(req,res)=>{
     try{
         const data = req.body;
@@ -72,6 +73,7 @@ app.post('/addPost', async(req,res)=>{
         })
     }
 })
+// Update Post API
 app.patch('/updatedata/:id', async(req, res)=>{
     try{
         const id = req.params.id
@@ -94,6 +96,7 @@ app.patch('/updatedata/:id', async(req, res)=>{
 
     }
 })
+// Get All Post API
 app.get('/allPost', async(req,res)=>{
     try{
         const cursor = allPost.find({}).sort({_id:-1})
@@ -112,6 +115,7 @@ app.get('/allPost', async(req,res)=>{
         })
     }
 })
+// Add Comment API
 app.post('/addComment', async(req,res)=>{
     try{
         const data = req.body;
@@ -130,6 +134,7 @@ app.post('/addComment', async(req,res)=>{
         })
     }
 })
+//Find Comment
 app.get('/addComment/:id', async(req,res)=>{
     try{
         const {id} = req.params
@@ -150,6 +155,7 @@ app.get('/addComment/:id', async(req,res)=>{
         })
     }
 })
+//Delete Post API
 app.delete('/allPost/:id', async (req, res) => {
     try{
         const id = req.params.id;
